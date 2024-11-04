@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentación del Proyecto PyQt y PySide6</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa; /* Cambiado a un tono más claro */
+      }
+      .navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+      .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      h2 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
+      }
+      .section {
+        margin: 20px 0;
+        padding: 10px;
+        background: #e0f7fa;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      footer {
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+      }
+
+      /* Estilo para la lista de elementos */
+      ul {
+        list-style-type: none; /* Quitar los puntos de la lista */
+        padding: 0; /* Quitar el padding por defecto */
+      }
+
+      ul li {
+        margin-bottom: 15px; /* Espacio entre los elementos de la lista */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#acciones">Acciones</a>
+      <a href="#botones">Botones</a>
+      <a href="#metodos">Métodos</a>
+      <a href="#widgets">Widgets</a>
+    </div>
+
+    <div class="container" id="top">
+      <h1>Documentación del Proyecto PyQt y PySide6</h1>
+
+      <div id="acciones" class="section">
+        <h2>Acciones</h2>
+        <p>
+          En esta sección, describimos las acciones que puede realizar el
+          usuario en la aplicación.
+        </p>
+        <ul>
+          <li>
+            <strong>crear_accion_ayuda()</strong>: Crea un
+            <code>QAction</code> que activa un modo de ayuda en la aplicación.
+            Al hacer clic en cualquier opción, el usuario recibe una explicación
+            sobre su funcionamiento, mejorando la comprensión del uso de la
+            aplicación.
+          </li>
+          <li>
+            <strong>crear_accion_nuevo_bloc()</strong>: Crea un
+            <code>QAction</code> que permite al usuario crear un nuevo bloc de
+            notas. Este acción se conecta a un método que inicializa un espacio
+            en blanco para que el usuario comience a trabajar.
+          </li>
+          <li>
+            <strong>crear_accion_abrir_archivo()</strong>: Crea un
+            <code>QAction</code> que facilita al usuario abrir un archivo
+            previamente guardado. Este acción conecta al método adecuado que
+            permite acceder a documentos y datos almacenados en la aplicación.
+          </li>
+          <li>
+            <strong>crear_accion_guardar_archivo()</strong>: Crea un
+            <code>QAction</code> que permite al usuario guardar los cambios
+            realizados en el archivo actual. Se conecta a un método que asegura
+            que el trabajo del usuario no se pierda.
+          </li>
+          <li>
+            <strong>crear_accion_deshacer()</strong>: Crea un
+            <code>QAction</code> que ofrece la opción de revertir la última
+            acción realizada. Se conecta a un método que permite al usuario
+            corregir errores rápidamente.
+          </li>
+          <li>
+            <strong>crear_accion_rehacer()</strong>: Crea un
+            <code>QAction</code> que permite al usuario volver a aplicar una
+            acción que fue deshecha. Esta acción facilita la gestión de cambios
+            realizados en el documento.
+          </li>
+          <li>
+            <strong>crear_accion_cortar()</strong>: Crea un
+            <code>QAction</code> que permite al usuario eliminar una selección
+            de texto o elementos, copiándolos al portapapeles para su uso
+            posterior en otra ubicación.
+          </li>
+          <li>
+            <strong>crear_accion_copiar()</strong>: Crea un
+            <code>QAction</code> que copia la selección de texto o elementos al
+            portapapeles sin eliminarlos, permitiendo al usuario pegarlos en
+            otra parte del documento.
+          </li>
+          <li>
+            <strong>crear_accion_pegar()</strong>: Crea un
+            <code>QAction</code> que inserta el contenido almacenado en el
+            portapapeles en la ubicación actual del cursor en el documento,
+            facilitando la incorporación de texto.
+          </li>
+          <li>
+            <strong>crear_accion_buscar()</strong>: Crea un
+            <code>QAction</code> que permite al usuario buscar texto dentro del
+            documento, facilitando la localización de información relevante.
+          </li>
+          <li>
+            <strong>crear_accion_reemplazar()</strong>: Crea un
+            <code>QAction</code> que permite al usuario reemplazar una palabra o
+            frase específica en el documento con otra. Se conecta a un método
+            que facilita la edición de texto.
+          </li>
+          <li>
+            <strong>crear_accion_reemplazar_todos()</strong>: Crea un
+            <code>QAction</code> que reemplaza todas las instancias de una
+            palabra específica en el documento. Esta acción agiliza el proceso
+            de edición en textos largos.
+          </li>
+          <li>
+            <strong>crear_accion_color_de_bloc()</strong>: Crea un
+            <code>QAction</code> que conecta a través de
+            <code>triggered.connect</code> al método de cambiar color, añadiendo
+            ayuda con <code>.setWhatsThis</code> y un
+            <code>QKeySequence</code> usando <code>.setShortcut</code> para
+            acceder más rápido a ese método.
+          </li>
+          <li>
+            <strong>crear_accion_salir()</strong>: Crea un
+            <code>QAction</code> que cierra la aplicación, asegurando que se
+            finalicen correctamente las sesiones de trabajo.
+          </li>
+        </ul>
+      </div>
+
+      <div id="botones" class="section">
+        <h2>Botones</h2>
+        <p>
+          En esta sección, describimos las acciones que pueden realizar los
+          botones de la aplicación.
+        </p>
+        <ul>
+          <li>
+            <strong>crear_boton_nuevo_bloc()</strong>: Crea un
+            <code>QToolButton</code> con un icono utilizando el método
+            <code>.setIcon</code>. Este botón permitirá al usuario crear un
+            nuevo bloc de notas, ofreciendo un espacio para organizar y
+            almacenar información. Se añadirá a la barra de herramientas con el
+            método <code>.addWidget</code>.
+          </li>
+          <li>
+            <strong>crear_abrir_archivo()</strong>: Crea un
+            <code>QToolButton</code> con un icono utilizando
+            <code>.setIcon</code>. Este botón facilita al usuario abrir un
+            archivo previamente guardado, permitiendo el acceso a documentos
+            almacenados en la aplicación. Se añadirá a la barra de herramientas
+            usando <code>.addWidget</code>.
+          </li>
+          <li>
+            <strong>crear_boton_guardar_archivo()</strong>: Crea un
+            <code>QToolButton</code> con un icono usando el método
+            <code>.setIcon</code>. Este botón permite al usuario guardar los
+            cambios realizados en el archivo actual, asegurando que su trabajo
+            no se pierda. Se integrará a la barra de herramientas con
+            <code>.addWidget</code>.
+          </li>
+          <li>
+            <strong>crear_boton_deshacer()</strong>: Crea un
+            <code>QToolButton</code> con un icono utilizando
+            <code>.setIcon</code>. Este botón ofrece la opción de revertir la
+            última acción realizada, permitiendo al usuario corregir errores de
+            forma rápida. Se añade a la barra de herramientas con
+            <code>.addWidget</code>.
+          </li>
+          <li>
+            <strong>crear_boton_rehacer()</strong>: Crea un
+            <code>QToolButton</code> con un icono utilizando
+            <code>.setIcon</code>. Este botón permite volver a aplicar una
+            acción que fue deshecha, facilitando la gestión de cambios en el
+            documento. Se incluirá en la barra de herramientas usando
+            <code>.addWidget</code>.
+          </li>
+        </ul>
+      </div>
+
+      <div id="metodos" class="section">
+        <h2>Métodos</h2>
+        <p>
+          En esta sección, describimos los métodos utilizados en la aplicación.
+        </p>
+        <ul>
+          <li>
+            <strong>cambiar_color_de_bloc()</strong>: Este método permite al
+            usuario cambiar el color de fondo del bloc de notas. Se puede
+            acceder a este método desde el menú o desde un botón de
+            herramientas. Al seleccionar un nuevo color, se actualizará el fondo
+            de la ventana correspondiente.
+          </li>
+          <li>
+            <strong>abrir_archivo(ruta)</strong>: Este método permite abrir un
+            archivo en la aplicación. Recibe la ruta del archivo como argumento
+            y carga su contenido en el editor de texto. Si el archivo no se
+            puede abrir, se mostrará un mensaje de error al usuario.
+          </li>
+          <li>
+            <strong>guardar_archivo(ruta)</strong>: Este método permite guardar
+            el contenido del editor de texto en un archivo. Recibe la ruta como
+            argumento y guarda los cambios realizados. Si la ruta es incorrecta
+            o si ocurre un error durante el proceso, se mostrará un mensaje al
+            usuario.
+          </li>
+        </ul>
+      </div>
+
+      <div id="widgets" class="section">
+        <h2>Widgets</h2>
+        <p>
+          En esta sección, describimos los widgets utilizados en la aplicación.
+        </p>
+        <ul>
+          <li>
+            <strong>QTextEdit</strong>: Este widget permite la edición de texto
+            enriquecido y es el principal componente utilizado para mostrar y
+            modificar el contenido del bloc de notas.
+          </li>
+          <li>
+            <strong>QToolBar</strong>: Este widget se utiliza para crear la
+            barra de herramientas de la aplicación. Contiene botones y acciones
+            que facilitan el acceso a las funcionalidades de la aplicación.
+          </li>
+          <li>
+            <strong>QStatusBar</strong>: Este widget se utiliza para mostrar
+            información sobre el estado actual de la aplicación. Puede mostrar
+            mensajes temporales y el estado del archivo que se está editando.
+          </li>
+          <li>
+            <strong>QMenuBar</strong>: Este widget se utiliza para crear la
+            barra de menú de la aplicación. Permite al usuario acceder a las
+            acciones principales, como abrir, guardar y salir de la aplicación.
+          </li>
+          <li>
+            <strong>QWidget</strong>: Este widget es la base para todos los
+            demás widgets en la aplicación. Se utiliza para crear la ventana
+            principal y organizar otros widgets dentro de ella.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="enlaces" class="section">
+      <h2>Enlaces de referencia</h2>
+      <a
+        href="https://www.riverbankcomputing.com/"
+        target="_blank"
+        title="Visita Riverbank Computing"
+      >
+        <strong>riverbankcomputing</strong>
+      </a>
+      <br />
+      <a
+        href="https://stackoverflow.co/teams/"
+        target="_blank"
+        title="Visita Stack Overflow Teams"
+      >
+        <strong>stackoverflow</strong>
+      </a>
+    </div>
+
+    <footer>
+      <p>
+        © 2024 Documentación del Proyecto PyQt y PySide6. Todos los derechos
+        reservados.
+      </p>
+    </footer>
+  </body>
+</html>
